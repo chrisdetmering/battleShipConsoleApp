@@ -1,9 +1,9 @@
 ﻿using System;
 namespace battleShipApp
 {
-    public class BattleShip
+    public class BattleShips
     {
-        public BattleShip()
+        public BattleShips()
         {
         }
     }
