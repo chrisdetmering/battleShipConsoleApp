@@ -7,7 +7,7 @@ namespace battleShipApp
     {
         private Hashtable Misses;
         private Hashtable BattleShipHits;
-        private string BattleShipLocation;
+        public string BattleShipLocation;
 
         public Board()
         {
@@ -16,6 +16,12 @@ namespace battleShipApp
             BattleShipLocation = PlaceBattleShip();
         }
 
+
+
+        public bool HitBattleShip(string guess)
+        {
+            return string.Equals(guess, BattleShipLocation);
+        }
 
 
         public void UpdateMisses(string coordinate)

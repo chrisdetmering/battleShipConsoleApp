@@ -5,6 +5,8 @@ namespace battleShipApp
     {
         public Game()
         {
+            //hits
+            //guesses
         }
 
         public static int GetUserCoordinateGuess(char coordinate)

@@ -31,34 +31,21 @@ namespace battleShipApp
                     Console.Clear();
                     board.DrawBoard();
 
-                    
+                    board.PlaceBattleShip();
 
-                    //Place battleShip
-                    Random random = new Random();
-
-                    int BattleShipXCoordinate = random.Next(0, 9);
-                    int BattleShipYCoordinate = random.Next(0, 9);
-
-
-
-
-                    //GetCoordinates
                     int x = GetUserCoordinateGuess('x');
                     int y = GetUserCoordinateGuess('y');
+                    string guess = $"{x}{y}";
 
-     
-
-                    if (x == BattleShipXCoordinate && y == BattleShipYCoordinate)
+                    if (board.HitBattleShip(guess))
                     {
                         Console.WriteLine("You hit the battleship!");
-                       
+                        board.UpdateBattleShipHits(guess);
                     }
                     else
                     {
                         Console.WriteLine("You missed the battleship");
-                        //add index of guess to misses
-                        string missedGuess = $"{x}{y}"; 
-                        board.UpdateMisses(missedGuess);
+                        board.UpdateMisses(guess);
                     }
 
                     Console.WriteLine("Press any key to continue...");
@@ -82,7 +69,7 @@ namespace battleShipApp
             {
                 UserGuess = PromptUserForCoordinate(coordinate);
 
-                if (UserGuess < 10 && UserGuess > 0)
+                if (UserGuess < 10 && UserGuess >= 0)
                 {
                     break;
                 }
@@ -101,7 +88,7 @@ namespace battleShipApp
 
         public static int PromptUserForCoordinate(char coordinate)
         {
-            Console.WriteLine($"Select {coordinate} coordinate between 1 - 10:");
+            Console.WriteLine($"Select {coordinate} coordinate between 0 - 9:");
             string Coordinate = Console.ReadLine();
             return Int32.Parse(Coordinate);
         }
