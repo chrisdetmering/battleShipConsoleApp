@@ -13,7 +13,7 @@ namespace battleShipApp
         {
             Misses = new Hashtable();
             BattleShipHits = new Hashtable();
-            BattleShipLocation = PlaceBattleShip();
+            BattleShipLocation = "";
         }
 
 
@@ -34,7 +34,7 @@ namespace battleShipApp
             BattleShipHits.Add(coordinate, " X ");
         }
 
-        public string PlaceBattleShip()
+        public void PlaceBattleShip()
         {
             string location; 
 
@@ -46,9 +46,7 @@ namespace battleShipApp
                     break;
                 }
             }
-
-
-            return location; 
+            BattleShipLocation = "11"; 
         }
 
 
